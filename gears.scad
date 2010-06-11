@@ -1,26 +1,6 @@
-//test
-//	gear(number_of_teeth=11,diametral_pitch=17);
-translate([(51+17)*200/360+1.15,0]) rotate(-0.02)
-	gear(number_of_teeth=51,circular_pitch=200);
-	gear(number_of_teeth=17,circular_pitch=200);
-	translate([-50,0]) gear(number_of_teeth=17,diametral_pitch=2);
-
-//test();
-
-module test()
-{
-for (i=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15])
-{
-	//echo(polar_to_cartesian([involute_intersect_angle( 0.1,i) , i ]));
-	translate(polar_to_cartesian([involute_intersect_angle( 0.1,i) , i ])) circle($fn=15, r=0.5);
-
-	//translate( involute_intersection_point(0.1,i,0) ) circle($fn=15, r=0.5);
-}
-}
-
-
-//	circular_pitch = pitch_diameter*180/ number_of_teeth;
-
+//test_involute_curve();
+test_gears();
+demo_3d_gears();
 
 // Geometry Sources:
 //	http://www.cartertools.com/involute.html
@@ -31,10 +11,10 @@ for (i=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15])
 //	Clearance: Radial distance between top of tooth on one gear to bottom of gap on another.
 
 module gear(number_of_teeth,
-		circular_pitch=false, diametrial_pitch=false,
+		circular_pitch=false, diametral_pitch=false,
 		pressure_angle=20, clearance = 0)
 {
-	if (circular_pitch==false && diametrical_pitch==false) echo("MCAD ERROR: gear module needs either a diametrical_pitch or circular_pitch");
+	if (circular_pitch==false && diametral_pitch==false) echo("MCAD ERROR: gear module needs either a diametral_pitch or circular_pitch");
 	
 	//Convert diametrial pitch to our native circular pitch
 	circular_pitch = (circular_pitch!=false?circular_pitch:180/diametral_pitch);
@@ -65,7 +45,6 @@ module gear(number_of_teeth,
 	root_diameter = root_radius * 2;
 	
 	half_thick_angle = 360 / (4 * number_of_teeth);
-	echo(half_thick_angle);
 	
 	union()
 	{
@@ -99,12 +78,7 @@ module involute_gear_tooth(
 	pitch_to_base_angle  = involute_intersect_angle( base_radius, pitch_radius );
 	
 	outer_to_base_angle = involute_intersect_angle( base_radius, outer_radius );
-
-	//echo(base_radius);
-	//echo(outer_radius);
-	//echo(outer_to_base_angle);
-	echo(acos(base_radius/pitch_radius));
-
+	
 	base1 = 0 - pitch_to_base_angle - half_thick_angle;
 	pitch1 = 0 - half_thick_angle;
 	outer1 = outer_to_base_angle - pitch_to_base_angle - half_thick_angle;
@@ -130,7 +104,7 @@ module involute_gear_tooth(
 	
 	if (root_radius > base_radius)
 	{
-		echo("true");
+		//echo("true");
 		polygon( points = [
 			r1_t,p1,o1,o2,p2,r2_t
 		], convexity = 3);
@@ -144,7 +118,8 @@ module involute_gear_tooth(
 	
 }
 
-
+// Mathematical Functions
+//===============
 
 // Finds the angle of the involute about the base radius at the given distance (radius) from it's center.
 //source: http://www.mathhelpforum.com/math-help/geometry/136011-circle-involute-solving-y-any-given-x.html
@@ -161,11 +136,38 @@ function polar_to_cartesian(polar) = [
 ];
 
 
-// == LEGACY ==
-// Finds the intersection of the involute about the base radius with a cricle of the given radius in cartesian coordinates [x,y].
+// Test Cases
+//===============
 
-//function involute_intersection_point(base_radius, radius, zero_angle) = polar_to_cartesian([  involute_intersect_angle(base_radius, radius)-zero_angle  ,  radius  ]);
+module test_gears()
+{
+	gear(number_of_teeth=51,circular_pitch=200);
+	translate([0, 50])gear(number_of_teeth=17,circular_pitch=200);
+	translate([-50,0]) gear(number_of_teeth=17,diametral_pitch=1);
+}
 
-//function rotation_matrix(degrees) = [ [cos(degrees), -sin(degrees)] , [sin(degrees), cos(degrees)] ];
+module demo_3d_gears()
+{
+	//double helical gear
+	// (helics don't line up perfectly - for display purposes only ;)
+	translate([50,0])
+	{
+	linear_extrude(height = 10, center = true, convexity = 10, twist = -45)
+	 gear(number_of_teeth=17,diametral_pitch=1);
+	translate([0,0,10]) linear_extrude(height = 10, center = true, convexity = 10, twist = 45)
+	 gear(number_of_teeth=17,diametral_pitch=1);
+	}
+	
+	//spur gear
+	translate([0,-50]) linear_extrude(height = 10, center = true, convexity = 10, twist = 0)
+	 gear(number_of_teeth=17,diametral_pitch=1);
 
-//function involute_intersect_angle(base_radius, radius) = sqrt( pow(radius,2) - pow(base_radius,2) ) / base_radius - acos(base_radius / radius);
+}
+
+module test_involute_curve()
+{
+	for (i=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15])
+	{
+		translate(polar_to_cartesian([involute_intersect_angle( 0.1,i) , i ])) circle($fn=15, r=0.5);
+	}
+}
