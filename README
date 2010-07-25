@@ -3,12 +3,29 @@ OpenSCAD MCAD Library
 
 This library contains components commonly used in designing and moching up mechanical designs. It is currently unfinished and still undergoing considerable API changes however many things are already working.
 
-This library is dual licensed under the GPL 3.0 and the GNU Lesser General Public License as per http://creativecommons.org/licenses/LGPL/2.1/ .
+This library is licensed under the GPL 3.0.
 
 Currently Provided Tools:
-	- gear(number_of_teeth, circular_pitch OR diametrial_pitch, pressure_angle OPTIONAL, clearance OPTIONAL)
-	- stepper_motor_mount(nema_standard, slide_distance OPTIONAL, mochup OPTIONAL)
 
-Tools for creating metric and imperial bolt/nut holes as well as standard/custom bearings are here but are not as usable as those listed above.
+* involute_gears.scad (http://www.thingiverse.com/thing:3575): 
+    - gear()
+    - bevel_gear()
+    - bevel_gear_pair()
 
-You are welcome to fork this project in github and request pulls. I will try to accomidade the community as much as possible in this.
+* gears.scad (Old version):
+    - gear(number_of_teeth, circular_pitch OR diametrial_pitch, pressure_angle OPTIONAL, clearance OPTIONAL)
+
+* motors.scad:
+    - stepper_motor_mount(nema_standard, slide_distance OPTIONAL, mochup OPTIONAL)
+
+Other tools (alpha quality):
+* nuts_and_bolts.scad: for creating metric and imperial bolt/nut holes
+* bearings.scad: standard/custom bearings
+* screw.cad: screws and augers
+
+Utils:
+* math.scad: general math functions
+* constants.scad: mathematical constants
+* curves.scad: mathematical functions defining curves
+
+You are welcome to fork this project in github and request pulls. I will try to accomodate the community as much as possible in this.
