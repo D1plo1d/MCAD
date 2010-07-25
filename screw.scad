@@ -1,3 +1,7 @@
+// Parametric screw-like things (ball screws, augers)
+// It is licensed under the GNU GPL 3.0 license.
+// © 2010 by Elmo Mäntynen
+
 include <curves.scad>
 
 /* common screw parameter
