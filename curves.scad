@@ -1,3 +1,7 @@
+// Parametric curves, to be used as paths
+// Licensed under the MIT license.
+// © 2010 by Elmo Mäntynen
+
 include <constants.scad>
 use <math.scad>
 
