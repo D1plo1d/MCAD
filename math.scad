@@ -1,4 +1,4 @@
-PI = 3.14159;
+include <constants.scad>
 
-// translates a imperial measurement in inches to meters
-mm_per_inche =25.4;
+function deg(angle) = 360*angle/TAU;
+
