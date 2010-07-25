@@ -1,3 +1,5 @@
+// License: GPL 2.0
+
 //Todo: placeholder; should generate standard + cusom bearing mounting holes
 module bearing_hole(outer_radius, hole=true, mochup=true)
 {

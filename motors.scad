@@ -1,3 +1,5 @@
+// License: GPL 2.0
+
 include <math.scad>
 
 
