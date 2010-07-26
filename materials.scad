@@ -18,9 +18,9 @@ Aluminum = [0.77, 0.77, 0.8];
 Brass = [0.88, 0.78, 0.5];
 
 // Example, uncomment to view
-//demo();
+//color_demo();
 
-module nema_demo(){
+module color_demo(){
     // Wood
     colorTest(Oak, 0, 0);
     colorTest(Pine, 1, 0);
