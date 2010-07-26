@@ -3,7 +3,8 @@ OpenSCAD MCAD Library
 
 This library contains components commonly used in designing and moching up mechanical designs. It is currently unfinished and still undergoing considerable API changes however many things are already working.
 
-This library is licensed under the GPL 2.0.
+This library is licensed under the LGPL 2.1
+See http://creativecommons.org/licenses/LGPL/2.1/ or the included file, lgpl-2.1.txt.
 
 Currently Provided Tools:
 
