@@ -29,5 +29,6 @@ Utils:
 * constants.scad: mathematical constants
 * curves.scad: mathematical functions defining curves
 * units.scad: easy metric units
+* utilities: geometric funtions and misc. useful stuff
 
 You are welcome to fork this project in github and request pulls. I will try to accomodate the community as much as possible in this.
