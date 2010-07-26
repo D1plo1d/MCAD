@@ -2,7 +2,7 @@
  * Material colors.
  * 
  * Originally by Hans Häggström, 2010.
- * Licenced under Creative Commons Attribution-Share Alike 3.0.
+ * Dual licenced under Creative Commons Attribution-Share Alike 3.0 and LGPL2 or later
  */
 
 // Material colors
@@ -18,25 +18,26 @@ Aluminum = [0.77, 0.77, 0.8];
 Brass = [0.88, 0.78, 0.5];
 
 // Example, uncomment to view
-/*
-// Wood
-colorTest(Oak, 0, 0);
-colorTest(Pine, 1, 0);
-colorTest(Birch, 2, 0);
+//demo();
 
-// Metals
-colorTest(Iron, 0, 1);
-colorTest(Steel, 1, 1);
-colorTest(Stainless, 2, 1);
-colorTest(Aluminum, 3, 1);
+module nema_demo(){
+    // Wood
+    colorTest(Oak, 0, 0);
+    colorTest(Pine, 1, 0);
+    colorTest(Birch, 2, 0);
 
-// Mixboards
-colorTest(FiberBoard, 0, 2);
+    // Metals
+    colorTest(Iron, 0, 1);
+    colorTest(Steel, 1, 1);
+    colorTest(Stainless, 2, 1);
+    colorTest(Aluminum, 3, 1);
 
-// Paints
-colorTest(BlackPaint, 0, 3);
+    // Mixboards
+    colorTest(FiberBoard, 0, 2);
 
-*/
+    // Paints
+    colorTest(BlackPaint, 0, 3);
+}
 
 module colorTest(col, row=0, c=0) {
   color(col) translate([row * 30,c*30,0]) sphere(r=10);

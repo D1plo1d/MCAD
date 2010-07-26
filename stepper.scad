@@ -2,24 +2,26 @@
  * A nema standard stepper motor module.
  * 
  * Originally by Hans Häggström, 2010.
- * Licenced under Creative Commons Attribution-Share Alike 3.0.
+ * Dual licenced under Creative Commons Attribution-Share Alike 3.0 and LGPL2 or later
  */
 
-<units.scad>
-<materials.scad>
+include <units.scad>
+include <materials.scad>
 
 
 // Demo, uncomment to show:
-/*
-for (size = [NemaShort, NemaMedium, NemaLong]) {  
-  translate([-100,size*100,0]) motor(Nema34, size, dualAxis=true);
-  translate([0,size*100,0])    motor(Nema23, size, dualAxis=true);
-  translate([100,size*100,0])  motor(Nema17, size, dualAxis=true);
-  translate([200,size*100,0])  motor(Nema14, size, dualAxis=true);
-  translate([300,size*100,0])  motor(Nema11, size, dualAxis=true);
-  translate([400,size*100,0])  motor(Nema08, size, dualAxis=true);
+//nema_demo();
+
+module nema_demo(){
+    for (size = [NemaShort, NemaMedium, NemaLong]) {  
+      translate([-100,size*100,0]) motor(Nema34, size, dualAxis=true);
+      translate([0,size*100,0])    motor(Nema23, size, dualAxis=true);
+      translate([100,size*100,0])  motor(Nema17, size, dualAxis=true);
+      translate([200,size*100,0])  motor(Nema14, size, dualAxis=true);
+      translate([300,size*100,0])  motor(Nema11, size, dualAxis=true);
+      translate([400,size*100,0])  motor(Nema08, size, dualAxis=true);
+    }
 }
-*/
 
 
 // Parameters: 

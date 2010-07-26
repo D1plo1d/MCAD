@@ -2,7 +2,7 @@
  * Basic units.
  * 
  * Originally by Hans Häggström, 2010.
- * Licenced under Creative Commons Attribution-Share Alike 3.0.
+ * Dual licenced under Creative Commons Attribution-Share Alike 3.0 and LGPL2 or later
  */
 
 
@@ -20,5 +20,5 @@ M8 = 8*mm;
 
 
 // When a small distance is needed to overlap shapes for boolean cutting, etc.
-epsilon = 1*mm;
+epsilon = 0.0001*mm;
 
