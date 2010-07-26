@@ -20,12 +20,14 @@ Currently Provided Tools:
 
 Other tools (alpha quality):
 * nuts_and_bolts.scad: for creating metric and imperial bolt/nut holes
-* bearings.scad: standard/custom bearings
+* bearing.scad: standard/custom bearings
 * screw.cad: screws and augers
+* materials.scad: color definitions for different materials
 
 Utils:
 * math.scad: general math functions
 * constants.scad: mathematical constants
 * curves.scad: mathematical functions defining curves
+* units.scad: easy metric units
 
 You are welcome to fork this project in github and request pulls. I will try to accomodate the community as much as possible in this.
