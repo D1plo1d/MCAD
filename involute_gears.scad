@@ -14,13 +14,21 @@
 //test_gears ();
 
 // Meshing Double Helix:
-//meshing_double_helix ();
+//test_meshing_double_helix ();
+
+module test_meshing_double_helix(){
+    test_meshing_double_helix ();
+}
 
 // Demonstrate the backlash option for Spur gears.
 //test_backlash ();
 
 // Demonstrate how to make meshing bevel gears.
-bevel_gear_pair ();
+//test_bevel_gear_pair();
+
+module test_bevel_gear_pair(){
+    bevel_gear_pair ();
+}
 
 pi=3.1415926535897932384626433832795;
 

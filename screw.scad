@@ -11,6 +11,11 @@ outside_diameter
 inner_diameter: thickness of the shaft
 */
 
+//Uncomment to see examples
+//test_auger();
+//test_ball_groove();
+//test_ball_groove2();
+//test_ball_screw();
 
 module helix(pitch, length, slices=500){
     rotations = length/pitch;
@@ -26,7 +31,7 @@ module auger(pitch, length, outside_diameter, inner_diameter) {
     }
 }
 
-translate([300, 0, 0]) auger(100, 300);
+module test_auger(){translate([300, 0, 0]) auger(100, 300);}
 
 
 module ball_groove(pitch, length, diameter, ball_radius=10) {
@@ -35,8 +40,7 @@ module ball_groove(pitch, length, diameter, ball_radius=10) {
         circle(r = ball_radius);
 }
 
-translate([0, 300, 0]) ball_groove(100, 300, 10);
-
+module test_ball_groove(){ translate([0, 300, 0]) ball_groove(100, 300, 10);}
 
 module ball_groove2(pitch, length, diameter, ball_radius, slices=200){
     rotations = length/pitch;
@@ -51,9 +55,10 @@ module ball_groove2(pitch, length, diameter, ball_radius, slices=200){
     }
 }
 
-translate([0, 0, 0]) ball_groove2(100, 300, 100, 10);
-
+module test_ball_groove2(){translate([0, 0, 0]) ball_groove2(100, 300, 100, 10);}
 
 module ball_screw(pitch, length, bearing_radius=2) {
 
 }
+
+module test_ball_screw(){}
